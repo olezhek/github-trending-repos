@@ -1,5 +1,6 @@
 {
   "name": "github-trending-repos",
+  "license": "UNLICENSED",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
