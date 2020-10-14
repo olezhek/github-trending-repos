@@ -1,0 +1,10 @@
+.stargazers:before {
+  content: '\2605';
+  color: gold;
+  margin-right: 0.2rem;
+}
+
+.stargazers:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
