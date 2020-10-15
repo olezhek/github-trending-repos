@@ -1,11 +1,14 @@
 import { cloneDeep } from 'lodash'
-import { SET_REPOS, TOGGLE_STAR, SET_STARS } from '../constants/repositories'
+import { FILTER_TODOS, SET_REPOS, TOGGLE_STAR, SET_STARS } from '../constants/repositories'
 import { commitUserStars } from '../actions/repositories'
 
 export default function repositories(state, { type, payload }) {
   const newState = cloneDeep(state)
 
   switch(type) {
+    case FILTER_TODOS:
+      newState.filterBy = payload
+      break
     case SET_REPOS:
       newState.repos = payload.items
       break
@@ -24,5 +27,6 @@ export default function repositories(state, { type, payload }) {
 
 export const initialState = {
   repos: [],
+  filterBy: false,
   starred: {}
 }
