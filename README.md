@@ -1,3 +1,20 @@
+## Installation
+
+1. Install `yarn`:
+
+```shell script
+npm i -g yarn
+```
+
+2. clone the repo
+3. run `yarn` in the repo root directory to install:
+
+```shell script
+yarn
+```
+
+4. Use `yarn test` to run tests and `yarn start` to start the application
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
