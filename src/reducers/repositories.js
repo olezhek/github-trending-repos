@@ -16,7 +16,11 @@ export default function repositories(state, { type, payload }) {
       newState.starred = payload
       break
     case TOGGLE_STAR:
-      newState.starred[payload] = !newState.starred[payload]
+      if (newState.starred[payload]) {
+        delete newState.starred[payload]
+      } else {
+        newState.starred[payload] = true
+      }
 
       commitUserStars(newState.starred)
       break
