@@ -59,7 +59,7 @@ describe('Repositories Reducer', () => {
     expect(
       repositories(initialState, { type: TOGGLE_STAR, payload: 'http://example.com' })
         .starred['http://example.com']
-    ).toBe(false)
+    ).toBeFalsy()
 
     expect(commitUserStars).toHaveBeenCalledTimes(1)
   })
