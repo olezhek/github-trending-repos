@@ -7,5 +7,11 @@ export default function requestData(from, method, body) {
     body: JSON.stringify(body)
   })
 
-  return fetch(r).then((res) => res.json())
+  return fetch(r).then((res) => {
+    if (res.status >= 400) {
+      throw new Error('User or server error')
+    }
+
+    return res.json()
+  })
 }
