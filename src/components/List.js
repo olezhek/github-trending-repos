@@ -18,7 +18,8 @@ export default function List() {
       dispatch({ type: SET_STARS, payload: stars })
   }, [])
 
-  const toggleStar = (url) => {
+  const toggleStar = (url) => (e) => {
+    e.preventDefault()
     dispatch({ type: TOGGLE_STAR, payload: url })
   }
 
@@ -53,7 +54,7 @@ export default function List() {
                 url={html_url}
                 stars={countStars(html_url, stargazers_count)}
                 starred={starred(html_url)}
-                toggleStar={toggleStar}
+                toggleStar={toggleStar(html_url)}
               />
             )
           }
