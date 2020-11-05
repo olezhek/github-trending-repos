@@ -46,7 +46,6 @@ export default function List() {
       {showAlert
         ? <Alert
             message="Unable to fetch data. Try again later"
-            handleDismiss={() => { toggleAlert(false) }}
           />
         : <>
             <div className="row">
