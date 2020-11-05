@@ -1,7 +1,11 @@
 import { requestData } from '../utils'
 
 export function fetchTrendingRepos() {
-  const url = 'https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc'
+  const date = new Date()
+  date.setDate(date.getDate() - 7)
+
+  const url =
+    `https://api.github.com/search/repositories?q=created:>${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}&sort=stars&order=desc`
   return requestData(url, 'get')
 }
 
