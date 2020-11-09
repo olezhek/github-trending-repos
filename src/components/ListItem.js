@@ -1,7 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
-export default function ListItem(props) {
+function ListItem(props) {
   const { name, url, description, stars, toggleStar, starred } = props
 
   return (
@@ -19,3 +20,14 @@ export default function ListItem(props) {
     </div>
   )
 }
+
+ListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  stars: PropTypes.number.isRequired,
+  toggleStar: PropTypes.func.isRequired,
+  starred: PropTypes.bool
+}
+
+export default ListItem

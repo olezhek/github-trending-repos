@@ -1,8 +1,9 @@
 import React  from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import './FilteringButtons.css'
 
-export default function FilteringButtons({ handleListFilter: toggleFilter, selectedFilter }) {
+function FilteringButtons({ handleListFilter: toggleFilter, selectedFilter }) {
   return (
     <div className="d-flex align-items-center filtering-buttons">
       <h6 className="mb-0 mr-2">Show repos starred by </h6>
@@ -19,3 +20,10 @@ export default function FilteringButtons({ handleListFilter: toggleFilter, selec
     </div>
   )
 }
+
+FilteringButtons.propTypes = {
+  handleListFilter: PropTypes.func.isRequired,
+  selectedFilter: PropTypes.oneOf(['me', false])
+}
+
+export default FilteringButtons

@@ -41,6 +41,8 @@ export default function List() {
 
   const countStars = (url, stars) => (starred(url) ? ++stars : stars)
 
+  const data = state.repos.filter(filterItems)
+
   return(
     <div className="container-fluid">
       {showAlert
@@ -55,19 +57,21 @@ export default function List() {
             </div>
             <div className="row">
               <div className="col mt-4">
-                {state.repos
-                  .filter(filterItems)
-                  .map(({ html_url, name, description, stargazers_count }) =>
-                    <ListItem
-                      key={html_url}
-                      name={name}
-                      description={description}
-                      url={html_url}
-                      stars={countStars(html_url, stargazers_count)}
-                      starred={starred(html_url)}
-                      toggleStar={toggleStar(html_url)}
-                    />
-                  )
+                {
+                  data.length ?
+                    data
+                      .map(({ html_url, name, description, stargazers_count }) =>
+                        <ListItem
+                          key={html_url}
+                          name={name}
+                          description={description}
+                          url={html_url}
+                          stars={countStars(html_url, stargazers_count)}
+                          starred={starred(html_url)}
+                          toggleStar={toggleStar(html_url)}
+                        />
+                      )
+                    : <div className="row"><div className="col text-center"><h6>No items found.</h6></div></div>
                 }
               </div>
             </div>
