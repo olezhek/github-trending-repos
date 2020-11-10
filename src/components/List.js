@@ -3,8 +3,7 @@ import { fetchUserStars, fetchTrendingRepos } from '../actions/repositories'
 import { FILTER_TODOS, SET_REPOS, SET_STARS, TOGGLE_STAR, FILTER_BY_LANGUAGES } from '../constants/repositories'
 import repositories, { initialState } from '../reducers/repositories'
 import Alert from './Alert'
-import FilteringButtons from './FilteringButtons'
-import LanguageFilteringButtons from './LanguageFilteringButtons'
+import ButtonGroup from './ButtonGroup'
 import ListItem from './ListItem'
 import './List.css'
 
@@ -54,6 +53,8 @@ export default function List() {
 
   const languages = Object.keys(state.availableLanguages || {})
 
+  const starredFilterButtons = ['Me']
+
   return(
     <div className="container-fluid">
       {showAlert
@@ -63,17 +64,21 @@ export default function List() {
         : <>
             <div className="row">
               <div className="col mt-2">
-                <FilteringButtons
-                  handleListFilter={handleListFilter}
-                  selectedFilter={state.filterBy} />
+                <ButtonGroup
+                  fallbackButtonLabel={'Everyone'}
+                  toggleFilter={handleListFilter}
+                  selectedFilter={state.filterBy}
+                  items={starredFilterButtons}
+                />
               </div>
             </div>
             <div className="row">
               <div className="col mt-2">
-                <LanguageFilteringButtons
-                  handleListFilter={handleLanguageFilter}
+                <ButtonGroup
+                  fallbackButtonLabel={'Display all'}
+                  toggleFilter={handleLanguageFilter}
                   selectedFilter={state.filterByLanguage}
-                  languages={languages} />
+                  items={languages} />
               </div>
             </div>
             <div className="row">

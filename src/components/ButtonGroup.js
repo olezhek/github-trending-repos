@@ -1,15 +1,15 @@
 import React  from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import './FilteringButtons.css'
+import './ButtonGroup.css'
 
-function LanguageFilteringButtons({ handleListFilter: toggleFilter, selectedFilter, languages = [] }) {
+function ButtonGroup({ toggleFilter, selectedFilter, items = [], fallbackButtonLabel = 'Any' }) {
   return (
     <div className="d-flex align-items-center filtering-buttons">
       <h6 className="mb-0 mr-2">Show repos starred by </h6>
       <div className="btn-group" role="group">
         {
-          languages.map((lang) => (
+          items.map((lang) => (
             <button
               key={lang}
               onClick={() => { toggleFilter(lang) }}
@@ -19,17 +19,17 @@ function LanguageFilteringButtons({ handleListFilter: toggleFilter, selectedFilt
         }
         <button
           onClick={() => { toggleFilter() }}
-          className={classnames('btn', { 'btn-outline-dark': selectedFilter === 'me', 'btn-dark': !selectedFilter })}
-          type="button">Everyone</button>
+          className={classnames('btn', { 'btn-outline-dark': selectedFilter, 'btn-dark': !selectedFilter })}
+          type="button">{fallbackButtonLabel}</button>
       </div>
     </div>
   )
 }
 
-LanguageFilteringButtons.propTypes = {
-  handleListFilter: PropTypes.func.isRequired,
+ButtonGroup.propTypes = {
+  toggleFilter: PropTypes.func.isRequired,
   selectedFilter: PropTypes.oneOf([PropTypes.string, PropTypes.bool]),
-  languages: PropTypes.arrayOf(PropTypes.string).isRequired
+  items: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
-export default LanguageFilteringButtons
+export default ButtonGroup
