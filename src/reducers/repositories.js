@@ -12,7 +12,9 @@ export default function repositories(state, { type, payload }) {
     case SET_REPOS:
       newState.repos = payload.items
       newState.availableLanguages = payload.items.reduce((collection, { language }) => {
-        collection[language] = true
+        if (language) {
+          collection[language] = true
+        }
 
         return collection
       }, {})

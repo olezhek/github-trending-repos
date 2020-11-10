@@ -28,8 +28,9 @@ function ButtonGroup({ toggleFilter, selectedFilter, items = [], fallbackButtonL
 
 ButtonGroup.propTypes = {
   toggleFilter: PropTypes.func.isRequired,
-  selectedFilter: PropTypes.oneOf([PropTypes.string, PropTypes.bool]),
-  items: PropTypes.arrayOf(PropTypes.string).isRequired
+  selectedFilter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  fallbackButtonLabel: PropTypes.string
 }
 
 export default ButtonGroup
