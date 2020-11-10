@@ -1,9 +1,10 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { fetchUserStars, fetchTrendingRepos } from '../actions/repositories'
-import { FILTER_TODOS, SET_REPOS, SET_STARS, TOGGLE_STAR } from '../constants/repositories'
+import { FILTER_TODOS, SET_REPOS, SET_STARS, TOGGLE_STAR, FILTER_BY_LANGUAGES } from '../constants/repositories'
 import repositories, { initialState } from '../reducers/repositories'
 import Alert from './Alert'
 import FilteringButtons from './FilteringButtons'
+import LanguageFilteringButtons from './LanguageFilteringButtons'
 import ListItem from './ListItem'
 import './List.css'
 
@@ -33,15 +34,25 @@ export default function List() {
     dispatch({ type: FILTER_TODOS, payload: filter })
   }
 
-  const filterItems = ({ html_url }) => (
+  const handleLanguageFilter = (filter) => {
+    dispatch({ type: FILTER_BY_LANGUAGES, payload: filter })
+  }
+
+  const filterByStarred = ({ html_url }) => (
     !state.filterBy || starred(html_url)
+  )
+
+  const filterByLanguage = ({ language }) => (
+    !state.filterByLanguage || language === state.filterByLanguage
   )
 
   const starred = (url) => state.starred[url]
 
   const countStars = (url, stars) => (starred(url) ? ++stars : stars)
 
-  const data = state.repos.filter(filterItems)
+  const data = state.repos.filter(filterByLanguage).filter(filterByStarred)
+
+  const languages = Object.keys(state.availableLanguages || {})
 
   return(
     <div className="container-fluid">
@@ -52,7 +63,17 @@ export default function List() {
         : <>
             <div className="row">
               <div className="col mt-2">
-                <FilteringButtons handleListFilter={handleListFilter} selectedFilter={state.filterBy} />
+                <FilteringButtons
+                  handleListFilter={handleListFilter}
+                  selectedFilter={state.filterBy} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col mt-2">
+                <LanguageFilteringButtons
+                  handleListFilter={handleLanguageFilter}
+                  selectedFilter={state.filterByLanguage}
+                  languages={languages} />
               </div>
             </div>
             <div className="row">

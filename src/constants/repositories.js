@@ -2,8 +2,10 @@ export const SET_REPOS = 'SET_REPOS'
 export const SET_STARS = 'SET_STARS'
 export const TOGGLE_STAR = 'TOGGLE_STAR'
 export const FILTER_TODOS = 'FILTER_TODOS'
+export const FILTER_BY_LANGUAGES = 'FILTER_BY_LANGUAGES'
 
 export default {
+  FILTER_BY_LANGUAGES,
   FILTER_TODOS,
   SET_REPOS,
   SET_STARS,

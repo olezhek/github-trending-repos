@@ -12,7 +12,7 @@ function App() {
         <List />
       </div>
     </div>
-  );
+  )
 }
 
 export default App
