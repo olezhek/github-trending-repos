@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import './ButtonGroup.css'
 
-function ButtonGroup({ toggleFilter, selectedFilter, items = [], fallbackButtonLabel = 'Any' }) {
+function ButtonGroup({ groupLabel = 'Items: ', toggleFilter, selectedFilter, items = [], fallbackButtonLabel = 'Any' }) {
   return (
     <div className="d-flex align-items-center filtering-buttons">
-      <h6 className="mb-0 mr-2">Show repos starred by </h6>
+      <h6 className="mb-0 mr-2">{groupLabel}</h6>
       <div className="btn-group" role="group">
         {
           items.map((lang) => (

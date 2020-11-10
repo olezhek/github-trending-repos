@@ -65,6 +65,7 @@ export default function List() {
             <div className="row">
               <div className="col mt-2">
                 <ButtonGroup
+                  groupLabel={'Show repos starred by '}
                   fallbackButtonLabel={'Everyone'}
                   toggleFilter={handleListFilter}
                   selectedFilter={state.filterBy}
@@ -75,6 +76,7 @@ export default function List() {
             <div className="row">
               <div className="col mt-2">
                 <ButtonGroup
+                  groupLabel={'Show repos with code written in '}
                   fallbackButtonLabel={'Display all'}
                   toggleFilter={handleLanguageFilter}
                   selectedFilter={state.filterByLanguage}
