@@ -13,15 +13,34 @@ npm i -g yarn
 yarn
 ```
 
-4. Use `yarn test` to run tests and `yarn start` to start the application
+## Testing
 
+```shell script
+yarn test
+```
+
+## Running the application
+
+### Node < 17
+
+```shell script
+yarn start
+```
+
+### Node 17+
+
+```
+NODE_OPTIONS=--openssl-legacy-provider yarn start
+```
+
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `NODE_OPTIONS=--openssl-legacy-provider yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

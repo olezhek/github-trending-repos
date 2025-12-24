@@ -19,6 +19,7 @@ describe('Repositories Reducer', () => {
     const payload = { items: [{ name: 'test repo 1' }, { name: 'test repo 2' }] }
 
     const expected = {
+      availableLanguages: {},
       repos: [{ name: 'test repo 1' }, { name: 'test repo 2' }],
       starred: {}
     }
