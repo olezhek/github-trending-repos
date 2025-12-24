@@ -5,7 +5,7 @@ import { commitUserStars } from '../actions/repositories'
 export default function repositories(state, { type, payload }) {
   const newState = cloneDeep(state)
 
-  switch(type) {
+  switch (type) {
     case FILTER_TODOS:
       newState.filterBy = payload
       break
