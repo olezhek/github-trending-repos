@@ -8,14 +8,19 @@ function ListItem(props) {
   return (
     <div className="row d-flex justify-content-between align-items-center">
       <div className="col-6">
-        <a rel="noopener noreferrer" target="_blank" href={url}>{name}</a>
+        <a rel="noopener noreferrer" target="_blank" href={url}>
+          {name}
+        </a>
         <p className="text-muted">{description}</p>
       </div>
       <div className="col-1">
         <a
           href="#"
           className={classnames('badge', 'stargazers', { 'badge-light': !starred, 'badge-dark': starred })}
-          onClick={toggleStar}>{stars}</a>
+          onClick={toggleStar}
+        >
+          {stars}
+        </a>
       </div>
     </div>
   )

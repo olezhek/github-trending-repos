@@ -31,7 +31,7 @@ function App() {
         </div>
       </div>
       {showAlert && <Alert message="Unable to fetch data. Try again later" />}
-      {!!state.repos?.length && (
+      {!!state.repos.length && (
         <div className="row">
           <List items={state} dispatch={dispatch} />
         </div>
