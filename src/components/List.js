@@ -1,6 +1,5 @@
 import React from 'react'
 import { FILTER_TODOS, TOGGLE_STAR, FILTER_BY_LANGUAGES } from '../constants/repositories'
-import Alert from './Alert'
 import ButtonGroup from './ButtonGroup'
 import ListItem from './ListItem'
 import './List.css'
