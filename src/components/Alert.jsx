@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 const Alert = ({ message }) => (
@@ -7,8 +6,6 @@ const Alert = ({ message }) => (
   </div>
 )
 
-Alert.propTypes = {
-  message: PropTypes.string.isRequired
-}
+Alert.propTypes = { message: PropTypes.string.isRequired }
 
 export default Alert

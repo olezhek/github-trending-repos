@@ -38,10 +38,4 @@ export default function repositories(state, { type, payload }) {
   return newState
 }
 
-export const initialState = {
-  availableLanguages: {},
-  repos: [],
-  filterBy: false,
-  filterByLanguage: false,
-  starred: {}
-}
+export const initialState = { availableLanguages: {}, repos: [], filterBy: false, filterByLanguage: false, starred: {} }

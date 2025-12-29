@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import Alert from './components/Alert'
 import List from './components/List'
 import { fetchTrendingRepos, fetchUserStars } from './actions/repositories'

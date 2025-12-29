@@ -1,4 +1,3 @@
-import React from 'react'
 import { FILTER_TODOS, TOGGLE_STAR, FILTER_BY_LANGUAGES } from '../constants/repositories'
 import ButtonGroup from './ButtonGroup'
 import ListItem from './ListItem'
