@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash'
+import cloneDeep from 'lodash.clonedeep'
 import { FILTER_TODOS, SET_REPOS, TOGGLE_STAR, SET_STARS, FILTER_BY_LANGUAGES } from '../constants/repositories'
 import { commitUserStars } from '../actions/repositories'
 
